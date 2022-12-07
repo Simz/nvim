@@ -72,11 +72,13 @@ return require("packer").startup(function()
             require("gitsigns").setup()
         end,
     })
-    use {
-        'dgrbrady/nvim-docker',
-        requires = { 'nvim-lua/plenary.nvim', 'MunifTanjim/nui.nvim' },
-        rocks = '4O4/reactivex' -- ReactiveX Lua implementation
-    }
+    use ({
+        'jose-elias-alvarez/null-ls.nvim'
+    })
+    use ({
+        'MunifTanjim/eslint.nvim',
+        config = get_config('eslint')
+    })
     --
     --    use {
     --      "puremourning/vimspector",

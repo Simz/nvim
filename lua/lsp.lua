@@ -63,3 +63,11 @@ require('lspconfig')['html'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
+require('lspconfig')['graphql'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    command  = "graphql-lsp",
+    args = {"server", "-m", "stream"},
+    filetypes = {"graphql"}
+}
+
