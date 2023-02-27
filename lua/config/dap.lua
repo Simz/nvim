@@ -69,7 +69,7 @@ dap.configurations.python = {
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
-    args = {"~/src/vscode-php-debug.git/out/phpDebug.js"},
+    args = {"/home/ec2-user/src/vscode-php-debug.git/out/phpDebug.js"},
 }
 
 dap.configurations.php = {
