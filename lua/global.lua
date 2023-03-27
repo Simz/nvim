@@ -23,7 +23,8 @@ utils.opt('o', 'mouse', '')
 
 --utils.map('n', '<leader>q', '<cmd>CHADopen<CR>')
 utils.map('n', '<leader>q', '<cmd>NvimTreeToggle<CR>')
-utils.map('n', '<leader>t', '<cmd>vsplit | :terminal<CR>')
+--utils.map('n', '<leader>t', '<cmd>FloatermToggle<CR>')
+utils.map('n', '<leader>t', '<cmd>lua require"localfn".docker_logs()<CR>')
 utils.map('n', '<C-p>', '<cmd>Telescope find_files<CR>')
 utils.map('n', '<leader>p', '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>')
 utils.map('n', '<C-f>', '<cmd>Telescope live_grep<CR>')
@@ -38,7 +39,7 @@ utils.map('n', '<leader>7', '7gt')
 utils.map('n', '<leader>8', '8gt')
 utils.map('n', '<leader>9', '9gt')
 utils.map('n', '<leader>g', '<cmd>vertical Git<CR>')
---utils.map('t', '<Esc>', '<C-\\><C-n>')
+utils.map('t', '<Esc>', '<C-\\><C-n>:q!<CR>')
 utils.map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>")
 utils.map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>")
 utils.map('n', '<F8>', "<cmd>lua require'dap'.step_into()<CR>")
@@ -130,3 +131,6 @@ require('gitsigns').setup {
         enable = false
     },
 }
+
+
+

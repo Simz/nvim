@@ -3,7 +3,7 @@ local cmp = require 'cmp'
 local next = cmp.mapping(function(fallback)
     if cmp.visible() then
         cmp.select_next_item()
---    elseif vim.fn["vsnip#available"]() == 1 then
+--   elseif vim.fn["vsnip#available"]() == 1 then
 --        vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
     else
         fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
@@ -40,20 +40,20 @@ cmp.setup({
         ["<S-Tab>"] = prev,
 --        ["<C-p>"] = prev,
 
-        ['<C-j>'] = cmp.mapping(function(fallback)
-            if vim.fn['vsnip#available']() == 1 then
-                vim.fn.feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '')
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-        ['<C-k>'] = cmp.mapping(function(fallback)
-            if vim.fn['vsnip#available']() == 1 then
-                vim.fn.feedkeys(t('<Plug>(vsnip-jump-prev)'), '')
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
+--        ['<C-j>'] = cmp.mapping(function(fallback)
+--            if vim.fn['vsnip#available']() == 1 then
+--                vim.fn.feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '')
+--            else
+--                fallback()
+--            end
+--        end, { 'i', 's' }),
+--        ['<C-k>'] = cmp.mapping(function(fallback)
+--            if vim.fn['vsnip#available']() == 1 then
+--                vim.fn.feedkeys(t('<Plug>(vsnip-jump-prev)'), '')
+--            else
+--                fallback()
+--            end
+--        end, { 'i', 's' }),
     },
     sources = {
         { name = 'nvim_lsp' },

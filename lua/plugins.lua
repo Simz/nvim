@@ -1,11 +1,13 @@
 function get_config(name)
     return string.format('require("config/%s")', name)
 end
-
 return require("packer").startup(function()
     use({ "wbthomason/packer.nvim" })
     use({
         "L3MON4D3/LuaSnip", config = get_config("luasnip")
+    })
+    use({
+        "voldikss/vim-floaterm"
     })
     use({
         "hrsh7th/nvim-cmp",
