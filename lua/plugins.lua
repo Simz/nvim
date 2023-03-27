@@ -3,6 +3,9 @@ function get_config(name)
 end
 return require("packer").startup(function()
 	use({ "wbthomason/packer.nvim" })
+    use({
+        "voldikss/vim-floaterm"
+    })
 	use({
 		"L3MON4D3/LuaSnip",config=get_config("luasnip")
 	})
