@@ -1,18 +1,5 @@
 local dap = require('dap')
-require("dap-python").setup("python", {})
---dap.adapters.python = {
---  type = 'executable';
---  command = '/home/souellet/src/.virtualenvs/debugpy/bin/python';
---  args = { '-m', 'debugpy.adapter' };
---}
---dap.adapters.remote_python = function(callback)
---  local host = 'localhost'
---  callback({
---    type = 'server';
---    host = host;
---    port = 5678;
---  })
---end
+require("dap-python").setup('~/src/.virtualenvs/debugpy/bin/python')
 
 dap.set_log_level('TRACE')
 dap.configurations.python = {
