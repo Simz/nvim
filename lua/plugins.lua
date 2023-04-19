@@ -1,25 +1,26 @@
 function get_config(name)
     return string.format('require("config/%s")', name)
 end
+
 return require("lazy").setup({
-    { 
+    {
         "olimorris/onedarkpro.nvim",
-        lazy=false,
+        lazy = false,
         config = function()
             get_config("onedark")
             vim.cmd([[colorscheme onedark]])
         end,
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",config = function()
+        "jose-elias-alvarez/null-ls.nvim", config = function()
             require("config/nullls")
         end,
     },
 
-    {
-        "L3MON4D3/LuaSnip", config = get_config("luasnip")
-    },
-    "voldikss/vim-floaterm",
+    { "L3MON4D3/LuaSnip", config = require("config/luasnip") },
+
+    { "voldikss/vim-floaterm" },
+
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -33,19 +34,19 @@ return require("lazy").setup({
             require('config/completion')
         end,
     },
-    "saadparwaiz1/cmp_luasnip",
-    "ggandor/lightspeed.nvim",
+    { "saadparwaiz1/cmp_luasnip" },
+    { "ggandor/lightspeed.nvim" },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            "nvim-lua/popup.nvim" ,
+            "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim"
         },
     },
-    {"williamboman/mason.nvim", config = get_config("mason") },
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    "nvim-treesitter/nvim-treesitter",
+    { "williamboman/mason.nvim", config = require("config/mason") },
+    { "williamboman/mason-lspconfig.nvim" },
+    { "neovim/nvim-lspconfig" },
+    { "nvim-treesitter/nvim-treesitter" },
 
     {
         "nvim-tree/nvim-tree.lua",
@@ -55,26 +56,24 @@ return require("lazy").setup({
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
         keys = {
-              { "<leader>q", "<cmd>NvimTreeToggle<CR>", desc = "NeoTree" },
+            { "<leader>q", "<cmd>NvimTreeToggle<CR>", desc = "NeoTree" },
         },
         config = function()
             require("config/tree-conf")
         end,
     },
     {
-	    "mfussenegger/nvim-dap",
-	    dependencies = {
-		    "mfussenegger/nvim-dap-python",
-	    },
-	    config = function() 
-		    require("config/dap")
-	    end,
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "mfussenegger/nvim-dap-python",
+        },
+        config = function()
+            require("config/dap")
+        end,
     },
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" }, config = get_config("dap-ui") },
-    "jparise/vim-graphql",
-    {
-        "hoob3rt/lualine.nvim",
-    },
+    { "jparise/vim-graphql" },
+    { "hoob3rt/lualine.nvim" },
     { "windwp/nvim-ts-autotag", config = get_config("ts-autotag") },
     { "mhartington/formatter.nvim", config = get_config("formatter") },
     { "akinsho/git-conflict.nvim", config = get_config("git-conflict") },
@@ -84,12 +83,8 @@ return require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require("gitsigns").setup()
+            require("config/gitsigns")
         end,
     },
-    'jose-elias-alvarez/null-ls.nvim',
-    {
-        'MunifTanjim/eslint.nvim',
-        config = get_config('eslint')
-    }
+    { 'jose-elias-alvarez/null-ls.nvim' },
 })
