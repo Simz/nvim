@@ -11,6 +11,12 @@ return require("lazy").setup({
         end,
     },
     {
+        "jose-elias-alvarez/null-ls.nvim",config = function()
+            require("config/nullls")
+        end,
+    },
+
+    {
         "L3MON4D3/LuaSnip", config = get_config("luasnip")
     },
     "voldikss/vim-floaterm",
