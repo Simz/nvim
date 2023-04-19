@@ -1,5 +1,5 @@
 -- Example config in Lua
-require("onedarkpro").setup({
+return require("onedarkpro").setup({
   dark_theme = "onedark", -- The default dark theme
   light_theme = "onelight", -- The default light theme
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
@@ -27,11 +27,3 @@ require("onedarkpro").setup({
       window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   }
 })
-
-vim.cmd("colorscheme onedark")
-require('lualine').setup {
-  --options = {
-  --  theme = 'onedark-nvim',
-  --  -- ... your lualine config
-  --}
-}

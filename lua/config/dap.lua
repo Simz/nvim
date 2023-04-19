@@ -1,7 +1,25 @@
 local dap = require('dap')
 require("dap-python").setup('~/src/.virtualenvs/debugpy/bin/python')
 
-dap.set_log_level('TRACE')
+dap.adapters.php = {
+    type = 'executable',
+    command = 'node',
+    args = {"/home/ec2-user/src/vscode-php-debug.git/out/phpDebug.js"},
+}
+
+dap.configurations.php = {
+    {
+        type = 'php',
+        request = 'launch',
+        name = 'Listen for xdebug',
+        port = '9003',
+        log = true,
+        serverSourceRoot = '/var/www/',
+        localSourceRoot = vim.fn['getcwd'](),
+
+    },
+}
+
 dap.configurations.python = {
   {
     -- The first three options are required by nvim-dap
@@ -52,29 +70,3 @@ dap.configurations.python = {
       }};
   }
 }
-
-dap.adapters.php = {
-    type = 'executable',
-    command = 'node',
-    args = {"/home/ec2-user/src/vscode-php-debug.git/out/phpDebug.js"},
-}
-
-dap.configurations.php = {
-    {
-        type = 'php',
-        request = 'launch',
-        name = 'Listen for xdebug',
-        port = '9003',
-        log = true,
-        serverSourceRoot = '/var/www/',
-        localSourceRoot = vim.fn['getcwd'](),
-
-    },
-}
---table.insert(require('dap').configurations.python, {
---  type = 'python',
---  request = 'launch',
---  name = 'My custom launch configuration',
---  program = '${file}',
---  -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
---})
