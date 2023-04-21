@@ -14,6 +14,12 @@ command_center.add({
     desc = "CDK - cdk deploy --all",
     cmd = "<CMD>FloatermNew! cdk deploy --all<CR>",
   },  {
+    desc = "Diffview",
+    cmd = "<CMD>DiffviewOpen<CR>",
+  },  {
+    desc = "Diffview current file",
+    cmd = "<CMD>DiffviewFileHistory %<CR>",
+  },  {
     desc = "reload",
     cmd = "<CMD>source $MYVIMRC<CR>",
   },

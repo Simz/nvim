@@ -36,7 +36,7 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true
         }),
-
+        ['<C-Space>'] = cmp.mapping.complete(),
         ["<S-Tab>"] = prev,
 --        ["<C-p>"] = prev,
 
@@ -62,5 +62,6 @@ cmp.setup({
         { name = 'buffer' },
         { name = 'calc' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
     },
 })

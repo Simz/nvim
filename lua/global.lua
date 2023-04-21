@@ -21,10 +21,8 @@ utils.opt('o', 'mouse', '')
 -- utils.opt('o', 'clipboard','unnamedplus')
 
 
---utils.map('n', '<leader>q', '<cmd>CHADopen<CR>')
 utils.map('n', '<leader>q', '<cmd>NvimTreeToggle<CR>')
---utils.map('n', '<leader>t', '<cmd>FloatermToggle<CR>')
-utils.map('n', '<leader>t', '<cmd>lua require"localfn".docker_logs()<CR>')
+utils.map('n', '<leader>t', '<cmd>lua require"localfn".toggleterm()<CR>')
 utils.map('n', '<C-p>', '<cmd>Telescope find_files<CR>')
 utils.map('n', '<leader>p', '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>')
 utils.map('n', '<C-f>', '<cmd>Telescope live_grep<CR>')
@@ -47,24 +45,12 @@ utils.map('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>")
 utils.map('n', '<leader>b', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 utils.map('n', '<leader>i', "<cmd>lua inspectcursor()<CR>")
 utils.map('n', '<leader>d', "<cmd>lua require'dapui'.toggle()<CR>")
+utils.map('n', '<leader>r', "<cmd>Telescope command_center<CR>")
+utils.map('n', '<leader>l', "<cmd>DiffviewClose<CR>")
 utils.map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 utils.map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 utils.map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
-
--- CHADTree
-local chadtree_settings = { keymap = { tertiary = { "t" }, trash = { "T" } } }
-vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
-
-
--- autotag
-require 'nvim-treesitter.configs'.setup {
-    autotag = {
-        enable = true,
-    }
-}
-
---vimsign
 
 
 vim.api.nvim_command[[
