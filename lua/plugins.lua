@@ -76,7 +76,7 @@ return require("lazy").setup({
     { "jparise/vim-graphql" },
     { "hoob3rt/lualine.nvim" },
     { "windwp/nvim-ts-autotag", config = get_config("ts-autotag") },
-    { "mhartington/formatter.nvim", config = get_config("formatter") },
+--    { "mhartington/formatter.nvim", config = get_config("formatter") },
     { "akinsho/git-conflict.nvim", config = get_config("git-conflict") },
     {
         "lewis6991/gitsigns.nvim",
