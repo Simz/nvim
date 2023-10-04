@@ -4,6 +4,12 @@ end
 
 return require("lazy").setup({
     {
+	"ThePrimeagen/harpoon",
+	dependencies = {
+	  "nvim-lua/plenary.nvim"
+	}
+    },
+    {
         "olimorris/onedarkpro.nvim",
         lazy = false,
         config = function()
@@ -47,7 +53,14 @@ return require("lazy").setup({
     { "williamboman/mason.nvim", config = require("config/mason") },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
-    { "nvim-treesitter/nvim-treesitter" },
+    { "nvim-treesitter/nvim-treesitter", config = function()
+        require'nvim-treesitter.configs'.setup {
+            highlight = {
+                enable = true,
+            }
+        }
+
+    end},
 
     {
         "nvim-tree/nvim-tree.lua",
@@ -106,6 +119,22 @@ return require("lazy").setup({
 --            require("config/diffview")
         end,
     },
+    {
+      "yioneko/nvim-vtsls",
+      config = function()
+            require('vtsls').config({
+                -- customize handlers for commands
+                handlers = {
+                    source_definition = function(err, locations) end,
+                    file_references = function(err, locations) end,
+                    code_action = function(err, actions) end,
+                },
+                -- automatically trigger renaming of extracted symbol
+                refactor_auto_rename = true,
+            })
+      end
+    }
+
 
 
 })
