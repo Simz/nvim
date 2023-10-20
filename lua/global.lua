@@ -54,9 +54,4 @@ utils.map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 utils.map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 
 
-vim.api.nvim_command[[
-  highlight LightspeedLabel ctermfg=blue
-  highlight LightspeedLabelOverlapped ctermfg=yellow
-  highlight LightspeedShortcut ctermfg=yellow ctermbg=NONE
-]]
 

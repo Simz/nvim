@@ -8,8 +8,13 @@ def test(a: str, b: str, c: str):
     b = a
 
 
+def testing(test: str):
+    return test
+
+
 def test_Test(testtt):
     test("1", "2", "3")
 
 
 test("1", "2", "3")
+testing("test")

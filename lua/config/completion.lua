@@ -3,8 +3,6 @@ local cmp = require 'cmp'
 local next = cmp.mapping(function(fallback)
     if cmp.visible() then
         cmp.select_next_item()
---   elseif vim.fn["vsnip#available"]() == 1 then
---        vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
     else
         fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
     end
@@ -13,8 +11,6 @@ end, { "i", "s" })
 local prev = cmp.mapping(function()
     if cmp.visible() then
         cmp.select_prev_item()
---    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
---        vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
     end
 end, { "i", "s" })
 
@@ -25,11 +21,8 @@ cmp.setup({
         end
     },
     mapping = {
-        --['<Down>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
-        --['<Up>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
         ['<Down>'] =  next,
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-
         ['<Tab>'] = next,
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<CR>'] = cmp.mapping.confirm ({
@@ -38,22 +31,6 @@ cmp.setup({
         }),
         ['<C-Space>'] = cmp.mapping.complete(),
         ["<S-Tab>"] = prev,
---        ["<C-p>"] = prev,
-
---        ['<C-j>'] = cmp.mapping(function(fallback)
---            if vim.fn['vsnip#available']() == 1 then
---                vim.fn.feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '')
---            else
---                fallback()
---            end
---        end, { 'i', 's' }),
---        ['<C-k>'] = cmp.mapping(function(fallback)
---            if vim.fn['vsnip#available']() == 1 then
---                vim.fn.feedkeys(t('<Plug>(vsnip-jump-prev)'), '')
---            else
---                fallback()
---            end
---        end, { 'i', 's' }),
     },
     sources = {
         { name = 'nvim_lsp' },
@@ -65,3 +42,22 @@ cmp.setup({
         { name = 'nvim_lsp_signature_help' },
     },
 })
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+

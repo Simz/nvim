@@ -106,6 +106,16 @@ return require("lazy").setup({
 --            require("config/diffview")
         end,
     },
+    { 
+        "ggandor/leap.nvim",
+        config = function()
+            require('leap').add_default_mappings()
+        end,
+    },
+    {
+        "simrat39/rust-tools.nvim"
+    }
+
 
 
 })
