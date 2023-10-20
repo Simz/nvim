@@ -3,6 +3,9 @@ function get_config(name)
 end
 
 return require("lazy").setup({
+    defaults = {
+		lazy = true,
+    },
     {
         "olimorris/onedarkpro.nvim",
         lazy = false,
@@ -19,7 +22,7 @@ return require("lazy").setup({
 
     { "L3MON4D3/LuaSnip", config = require("config/luasnip") },
 
-    { "voldikss/vim-floaterm" },
+--    { "voldikss/vim-floaterm" },
 
     {
         "hrsh7th/nvim-cmp",
@@ -36,7 +39,7 @@ return require("lazy").setup({
         end,
     },
     { "saadparwaiz1/cmp_luasnip" },
-    { "ggandor/lightspeed.nvim" },
+ --   { "ggandor/lightspeed.nvim" },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -47,7 +50,14 @@ return require("lazy").setup({
     { "williamboman/mason.nvim", config = require("config/mason") },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
-    { "nvim-treesitter/nvim-treesitter" },
+    { "nvim-treesitter/nvim-treesitter", config = function()
+        require'nvim-treesitter.configs'.setup {
+            highlight = {
+                enable = true,
+            }
+        }
+
+    end},
 
     {
         "nvim-tree/nvim-tree.lua",
@@ -114,6 +124,30 @@ return require("lazy").setup({
     },
     {
         "simrat39/rust-tools.nvim"
+    },
+    {
+      "yioneko/nvim-vtsls",
+      config = function()
+            require('vtsls').config({
+                -- customize handlers for commands
+                handlers = {
+                    source_definition = function(err, locations) end,
+                    file_references = function(err, locations) end,
+                    code_action = function(err, actions) end,
+                },
+                -- automatically trigger renaming of extracted symbol
+                refactor_auto_rename = true,
+            })
+      end
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        keys = {
+            { "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>" },
+        },
+        config = function()
+            require("config/select-ui")
+        end
     }
 
 

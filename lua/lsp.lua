@@ -39,10 +39,10 @@ require('lspconfig')['pyright'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+--require('lspconfig')['tsserver'].setup {
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--}
 require('lspconfig')['intelephense'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -80,3 +80,5 @@ require('lspconfig')['graphql'].setup {
     filetypes = {"graphql"}
 }
 
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
+require("lspconfig").vtsls.setup({})

@@ -55,3 +55,12 @@ utils.map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 
 
 
+vim.api.nvim_command[[
+
+  hi cursorline cterm=none term=none
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+  highlight CursorLine guibg=#303000 ctermbg=234
+
+]]
+
