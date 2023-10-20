@@ -3,12 +3,9 @@ function get_config(name)
 end
 
 return require("lazy").setup({
-    {
-	"ThePrimeagen/harpoon",
-	dependencies = {
-	  "nvim-lua/plenary.nvim"
-	}
-    },
+    defaults = {
+		lazy = true,
+	},
     {
         "olimorris/onedarkpro.nvim",
         lazy = false,
@@ -25,7 +22,7 @@ return require("lazy").setup({
 
     { "L3MON4D3/LuaSnip", config = require("config/luasnip") },
 
-    { "voldikss/vim-floaterm" },
+--    { "voldikss/vim-floaterm" },
 
     {
         "hrsh7th/nvim-cmp",
@@ -42,7 +39,7 @@ return require("lazy").setup({
         end,
     },
     { "saadparwaiz1/cmp_luasnip" },
-    { "ggandor/lightspeed.nvim" },
+ --   { "ggandor/lightspeed.nvim" },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -133,6 +130,15 @@ return require("lazy").setup({
                 refactor_auto_rename = true,
             })
       end
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        keys = {
+            { "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>" },
+        },
+        config = function()
+            require("config/select-ui")
+        end
     }
 
 
