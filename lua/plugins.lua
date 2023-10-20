@@ -4,7 +4,7 @@ end
 
 return require("lazy").setup({
     defaults = {
-		lazy = true,
+        lazy = true,
     },
     {
         "olimorris/onedarkpro.nvim",
@@ -15,14 +15,12 @@ return require("lazy").setup({
         end,
     },
     {
-        "jose-elias-alvarez/null-ls.nvim", config = function()
+        "nvimtools/none-ls.nvim", config = function()
             require("config/nullls")
         end,
     },
 
     { "L3MON4D3/LuaSnip", config = require("config/luasnip") },
-
---    { "voldikss/vim-floaterm" },
 
     {
         "hrsh7th/nvim-cmp",
@@ -39,7 +37,7 @@ return require("lazy").setup({
         end,
     },
     { "saadparwaiz1/cmp_luasnip" },
- --   { "ggandor/lightspeed.nvim" },
+
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -47,17 +45,19 @@ return require("lazy").setup({
             "nvim-lua/plenary.nvim"
         },
     },
+
     { "williamboman/mason.nvim", config = require("config/mason") },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
     { "nvim-treesitter/nvim-treesitter", config = function()
-        require'nvim-treesitter.configs'.setup {
+        require 'nvim-treesitter.configs'.setup {
             highlight = {
                 enable = true,
             }
         }
 
-    end},
+    end
+    },
 
     {
         "nvim-tree/nvim-tree.lua",
@@ -86,7 +86,7 @@ return require("lazy").setup({
     { "jparise/vim-graphql" },
     { "hoob3rt/lualine.nvim" },
     { "windwp/nvim-ts-autotag", config = get_config("ts-autotag") },
---    { "mhartington/formatter.nvim", config = get_config("formatter") },
+    --    { "mhartington/formatter.nvim", config = get_config("formatter") },
     { "akinsho/git-conflict.nvim", config = get_config("git-conflict") },
     {
         "lewis6991/gitsigns.nvim",
@@ -97,7 +97,6 @@ return require("lazy").setup({
             require("config/gitsigns")
         end,
     },
-    { 'jose-elias-alvarez/null-ls.nvim' },
     {
         "FeiyouG/command_center.nvim",
         dependencies = {
@@ -113,21 +112,15 @@ return require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = function()
---            require("config/diffview")
-        end,
-    },
-    { 
-        "ggandor/leap.nvim",
-        config = function()
-            require('leap').add_default_mappings()
+            --            require("config/diffview")
         end,
     },
     {
         "simrat39/rust-tools.nvim"
     },
     {
-      "yioneko/nvim-vtsls",
-      config = function()
+        "yioneko/nvim-vtsls",
+        config = function()
             require('vtsls').config({
                 -- customize handlers for commands
                 handlers = {
@@ -138,7 +131,7 @@ return require("lazy").setup({
                 -- automatically trigger renaming of extracted symbol
                 refactor_auto_rename = true,
             })
-      end
+        end
     },
     {
         "nvim-telescope/telescope-ui-select.nvim",

@@ -1,7 +1,8 @@
 import os
-
-
 def test(a: str, b: str, c: str):
+    
+
+
     a = "test"
     b = a
     os.environ["test"]
