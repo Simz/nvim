@@ -63,6 +63,15 @@ require('lspconfig')['rust_analyzer'].setup {
         ["rust-analyzer"] = {}
     }
 }
+
+local rt = require("rust-tools")
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+    end,
+  },
+})
+
 require('lspconfig')['lua_ls'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
