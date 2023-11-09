@@ -35,14 +35,22 @@ local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
+-- require('lspconfig')['jedi_language_server'].setup {
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
 require('lspconfig')['pyright'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
---require('lspconfig')['tsserver'].setup {
---    on_attach = on_attach,
---    flags = lsp_flags,
---}
+require('lspconfig')['tsserver'].setup {
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+
+    flags = lsp_flags,
+}
 require('lspconfig')['intelephense'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -71,5 +79,5 @@ require('lspconfig')['graphql'].setup {
     filetypes = {"graphql"}
 }
 
-require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
-require("lspconfig").vtsls.setup({})
+--require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
+--require("lspconfig").vtsls.setup({})
