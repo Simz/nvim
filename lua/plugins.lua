@@ -20,7 +20,11 @@ return require("lazy").setup({
         end,
     },
 
-    { "L3MON4D3/LuaSnip", config = require("config/luasnip") },
+    { 
+        "L3MON4D3/LuaSnip", config = function() 
+          require("config/luasnip")
+        end,
+    },
 
     {
         "hrsh7th/nvim-cmp",
@@ -46,7 +50,10 @@ return require("lazy").setup({
         },
     },
 
-    { "williamboman/mason.nvim", config = require("config/mason") },
+    { "williamboman/mason.nvim", config = function() 
+            require("config/mason") 
+        end,
+    },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
     { "nvim-treesitter/nvim-treesitter", config = function()
