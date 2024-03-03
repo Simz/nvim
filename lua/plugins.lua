@@ -23,6 +23,7 @@ return require("lazy").setup({
             require("config/nullls")
         end,
     },
+    { "tpope/vim-sleuth" },
 
     {
         'numToStr/Comment.nvim',
@@ -165,7 +166,9 @@ return require("lazy").setup({
         end,
     },
     {
-        "simrat39/rust-tools.nvim"
+        "mrcjkb/rustaceanvim",
+        version = '^4', -- Recommended
+        ft = { 'rust' },
     },
     {
         "yioneko/nvim-vtsls",
