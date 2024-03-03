@@ -25,6 +25,40 @@ return require("lazy").setup({
     },
 
     {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    },
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = {
+            -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+            -- animation = true,
+            -- insert_at_start = true,
+            -- …etc.
+        },
+        version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    },
+    {
         "L3MON4D3/LuaSnip",
         config = function()
             require("config/luasnip")

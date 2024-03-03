@@ -27,15 +27,15 @@ utils.map('n', '<C-p>', '<cmd>Telescope find_files<CR>')
 utils.map('n', '<leader>p', '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>')
 utils.map('n', '<C-f>', '<cmd>Telescope live_grep<CR>')
 utils.map('n', '<C-i>', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-utils.map('n', '<leader>1', '1gt')
-utils.map('n', '<leader>2', '2gt')
-utils.map('n', '<leader>3', '3gt')
-utils.map('n', '<leader>4', '4gt')
-utils.map('n', '<leader>5', '5gt')
-utils.map('n', '<leader>6', '6gt')
-utils.map('n', '<leader>7', '7gt')
-utils.map('n', '<leader>8', '8gt')
-utils.map('n', '<leader>9', '9gt')
+utils.map('n', '<leader>1', '<cmd>BufferGoto1<CR>')
+utils.map('n', '<leader>2', '<cmd>BufferGoto2<CR>')
+utils.map('n', '<leader>3', '<cmd>BufferGoto3<CR>')
+utils.map('n', '<leader>4', '<cmd>BufferGoto4<CR>')
+utils.map('n', '<leader>5', '<cmd>BufferGoto5<CR>')
+utils.map('n', '<leader>6', '<cmd>BufferGoto6<CR>')
+utils.map('n', '<leader>7', '<cmd>BufferGoto7<CR>')
+utils.map('n', '<leader>8', '<cmd>BufferGoto8<CR>')
+utils.map('n', '<leader>9', '<cmd>BufferGoto9<CR>')
 utils.map('n', '<leader>g', '<cmd>vertical Git<CR>')
 utils.map('t', '<Esc>', '<C-\\><C-n>:FloatermToggle<CR>')
 utils.map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>")
@@ -55,7 +55,7 @@ utils.map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 
 
 
-vim.api.nvim_command[[
+vim.api.nvim_command [[
 
   hi cursorline cterm=none term=none
   autocmd WinEnter * setlocal cursorline
@@ -63,4 +63,3 @@ vim.api.nvim_command[[
   highlight CursorLine guibg=#303000 ctermbg=234
 
 ]]
-
