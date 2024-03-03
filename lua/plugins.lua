@@ -10,7 +10,7 @@ return require("lazy").setup({
         "olimorris/onedarkpro.nvim",
         lazy = false,
         config = function()
-            get_config("onedark")
+            require("config/onedark")
             vim.cmd([[colorscheme onedark]])
         end,
     },
@@ -24,6 +24,7 @@ return require("lazy").setup({
         end,
     },
     { "tpope/vim-sleuth" },
+    { "stevearc/dressing.nvim" },
 
     {
         'numToStr/Comment.nvim',
@@ -116,9 +117,6 @@ return require("lazy").setup({
         dependencies = {
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
-        keys = {
-            { "<leader>q", "<cmd>NvimTreeToggle<CR>", desc = "NeoTree" },
-        },
         config = function()
             require("config/tree-conf")
         end,
@@ -187,9 +185,6 @@ return require("lazy").setup({
     },
     {
         "nvim-telescope/telescope-ui-select.nvim",
-        keys = {
-            { "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>" },
-        },
         config = function()
             require("config/select-ui")
         end

@@ -20,38 +20,47 @@ utils.opt('o', 'updatetime', 300)
 utils.opt('o', 'mouse', '')
 -- utils.opt('o', 'clipboard','unnamedplus')
 
+local wk = require("which-key")
+wk.register({
+  ["<leader>"] = {
+    q = { "<cmd>NvimTreeToggle<CR>", "Open file tree" },
+    p = { '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>', "Fzf all files" },
+    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+    ["1"] = { '<cmd>BufferGoto1<CR>', "Goto tab 1" },
+    ["2"] = { '<cmd>BufferGoto2<CR>', "Goto tab 2" },
+    ["3"] = { '<cmd>BufferGoto3<CR>', "Goto tab 3" },
+    ["4"] = { '<cmd>BufferGoto4<CR>', "Goto tab 4" },
+    ["5"] = { '<cmd>BufferGoto5<CR>', "Goto tab 5" },
+    ["6"] = { '<cmd>BufferGoto6<CR>', "Goto tab 6" },
+    ["7"] = { '<cmd>BufferGoto7<CR>', "Goto tab 7" },
+    ["8"] = { '<cmd>BufferGoto8<CR>', "Goto tab 8" },
+    ["9"] = { '<cmd>BufferGoto9<CR>', "Goto tab 9" },
+    g = {
+      p = { "<cmd>Gitsign preview_hunk<CR>", "GS preview_hunk" },
+      b = { "<cmd>Gitsign blame_line<CR>", "GS blame line" },
+      o = { "<cmd>GitConflictChooseOurs<CR>", "GC choose our" },
+      t = { "<cmd>GitConflictChooseTheirs<CR>", "GC choose theirs" },
+      n = { "<cmd>:GitConflictNextConflict<CR>", "GC next conflict" },
+    },
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint" },
+    v = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Debug value" },
+    d = { "<cmd>lua require'dapui'.toggle()<CR>", "Toggle debuging UI" },
+    l = { "<cmd>DiffviewClose<CR>", "DiffviewClose" },
+    f = { '<cmd>lua vim.lsp.buf.format { async = true }<CR>', "Format buffer" },
+  },
+  ["<C-p>"] = { '<cmd>Telescope find_files<CR>', "" },
+  ["<C-f>"] = { '<cmd>Telescope live_grep<CR>', "" },
+  ["<C-i>"] = { '<cmd>lua vim.lsp.buf.formatting()<CR>', "" },
+  ["gD"] = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "" },
+  ["gd"] = { '<cmd>lua vim.lsp.buf.definition()<CR>', "" },
+  ["K"] = { '<cmd>lua vim.lsp.buf.hover()<CR>', "" },
+  ["<F5>"] = { "<cmd>lua require'dap'.continue()<CR>", "" },
+  ["<F10>"] = { "<cmd>lua require'dap'.step_over()<CR>", "" },
+  ["<F8>"] = { "<cmd>lua require'dap'.step_into()<CR>", "" },
+  ["<F12>"] = { "<cmd>lua require'dap'.step_out()<CR>", "" },
+})
 
-utils.map('n', '<leader>q', '<cmd>NvimTreeToggle<CR>')
-utils.map('n', '<leader>t', '<cmd>lua require"localfn".toggleterm()<CR>')
-utils.map('n', '<C-p>', '<cmd>Telescope find_files<CR>')
-utils.map('n', '<leader>p', '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>')
-utils.map('n', '<C-f>', '<cmd>Telescope live_grep<CR>')
-utils.map('n', '<C-i>', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-utils.map('n', '<leader>1', '<cmd>BufferGoto1<CR>')
-utils.map('n', '<leader>2', '<cmd>BufferGoto2<CR>')
-utils.map('n', '<leader>3', '<cmd>BufferGoto3<CR>')
-utils.map('n', '<leader>4', '<cmd>BufferGoto4<CR>')
-utils.map('n', '<leader>5', '<cmd>BufferGoto5<CR>')
-utils.map('n', '<leader>6', '<cmd>BufferGoto6<CR>')
-utils.map('n', '<leader>7', '<cmd>BufferGoto7<CR>')
-utils.map('n', '<leader>8', '<cmd>BufferGoto8<CR>')
-utils.map('n', '<leader>9', '<cmd>BufferGoto9<CR>')
-utils.map('n', '<leader>g', '<cmd>vertical Git<CR>')
-utils.map('t', '<Esc>', '<C-\\><C-n>:FloatermToggle<CR>')
-utils.map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>")
-utils.map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>")
-utils.map('n', '<F8>', "<cmd>lua require'dap'.step_into()<CR>")
-utils.map('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>")
-utils.map('n', '<leader>b', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-utils.map('n', '<leader>i', "<cmd>lua require('dap.ui.widgets').hover()<CR>")
-utils.map('n', '<leader>v', "<cmd>lua require('dap.ui.widgets').hover()<CR>")
-utils.map('n', '<leader>d', "<cmd>lua require'dapui'.toggle()<CR>")
-utils.map('n', '<leader>r', "<cmd>Telescope command_center<CR>")
-utils.map('n', '<leader>l', "<cmd>DiffviewClose<CR>")
-utils.map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-utils.map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-utils.map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
+
 
 
 

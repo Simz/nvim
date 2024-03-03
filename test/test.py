@@ -1,9 +1,11 @@
+import datetime
 import os
 
 
 def test(a: str, b: str, c: str):
     a = "test"
     a = "test"
+    a.expandtabs
 
     a = "test"
     a = "test"
