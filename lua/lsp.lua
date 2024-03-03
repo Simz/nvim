@@ -11,6 +11,23 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    if client.name == 'ruff_lsp' then
+        -- Disable hover in favor of Pyright
+        client.server_capabilities.hoverProvider = false
+    end
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = buffer,
+        callback = function()
+            vim.lsp.buf.format { async = false }
+            if client.name == 'ruff_lsp' then
+                vim.lsp.buf.code_action({
+                    context = { only = { "source.organizeImports" } },
+                    apply = true,
+                })
+                vim.wait(100)
+            end
+        end
+    })
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -42,6 +59,22 @@ local lsp_flags = {
 require('lspconfig')['pyright'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
+    settings = {
+        pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                --ignore = { '*' },        -- Using Ruff
+                typeCheckingMode = 'on', -- Using mypy`
+            },
+        },
+    },
+}
+require('lspconfig')['ruff_lsp'].setup {
+    flags = lsp_flags,
+    on_attach = on_attach
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = function(client)
@@ -66,10 +99,10 @@ require('lspconfig')['rust_analyzer'].setup {
 
 local rt = require("rust-tools")
 rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-    end,
-  },
+    server = {
+        on_attach = function(_, bufnr)
+        end,
+    },
 })
 
 require('lspconfig')['lua_ls'].setup {
@@ -82,10 +115,10 @@ require('lspconfig')['html'].setup {
 }
 require('lspconfig')['graphql'].setup {
     on_attach = on_attach,
-    flags = lsp_flags,
-    command  = "graphql-lsp",
-    args = {"server", "-m", "stream"},
-    filetypes = {"graphql"}
+    flags     = lsp_flags,
+    command   = "graphql-lsp",
+    args      = { "server", "-m", "stream" },
+    filetypes = { "graphql" }
 }
 
 --require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended

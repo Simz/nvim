@@ -19,14 +19,8 @@ null_ls.setup({
         -- yaml
         null_ls.builtins.diagnostics.yamllint,
         -- js
-        null_ls.builtins.diagnostics.eslint_d,
+        require("none-ls.code_actions.eslint"),
+        require("none-ls.diagnostics.eslint"),
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.code_actions.eslint_d,
-        -- python
-        null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.black.with({
-        --            extra_args = {"--line-length", "120"},
-        }),
-        null_ls.builtins.diagnostics.flake8,
     },
 })

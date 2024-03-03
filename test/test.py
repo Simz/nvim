@@ -1,11 +1,15 @@
 import os
-def test(a: str, b: str, c: str):
-    
 
+
+def test(a: str, b: str, c: str):
+    a = "test"
+    a = "test"
 
     a = "test"
+    a = "test"
     b = a
-    os.environ["test"]
+
+    os.environ("test")
     b = a
 
 

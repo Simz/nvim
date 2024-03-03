@@ -15,14 +15,19 @@ return require("lazy").setup({
         end,
     },
     {
-        "nvimtools/none-ls.nvim", config = function()
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+            "nvimtools/none-ls-extras.nvim",
+        },
+        config = function()
             require("config/nullls")
         end,
     },
 
-    { 
-        "L3MON4D3/LuaSnip", config = function() 
-          require("config/luasnip")
+    {
+        "L3MON4D3/LuaSnip",
+        config = function()
+            require("config/luasnip")
         end,
     },
 
@@ -50,20 +55,23 @@ return require("lazy").setup({
         },
     },
 
-    { "williamboman/mason.nvim", config = function() 
-            require("config/mason") 
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("config/mason")
         end,
     },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
-    { "nvim-treesitter/nvim-treesitter", config = function()
-        require 'nvim-treesitter.configs'.setup {
-            highlight = {
-                enable = true,
+    {
+        "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
+                highlight = {
+                    enable = true,
+                }
             }
-        }
-
-    end
+        end
     },
 
     {
@@ -89,10 +97,10 @@ return require("lazy").setup({
             require("config/dap")
         end,
     },
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" }, config = get_config("dap-ui") },
+    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap" }, config = get_config("dap-ui") },
     { "jparise/vim-graphql" },
     { "hoob3rt/lualine.nvim" },
-    { "windwp/nvim-ts-autotag", config = get_config("ts-autotag") },
+    { "windwp/nvim-ts-autotag",    config = get_config("ts-autotag") },
     --    { "mhartington/formatter.nvim", config = get_config("formatter") },
     { "akinsho/git-conflict.nvim", config = get_config("git-conflict") },
     {
