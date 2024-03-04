@@ -18,7 +18,7 @@ utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'updatetime', 300)
 utils.opt('o', 'mouse', '')
--- utils.opt('o', 'clipboard','unnamedplus')
+utils.opt('o', 'clipboard', 'unnamedplus')
 
 local wk = require("which-key")
 wk.register({
