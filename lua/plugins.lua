@@ -6,6 +6,19 @@ return require("lazy").setup({
     defaults = {
         lazy = true,
     },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      -- See Configuration section for rest
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
     {
         "olimorris/onedarkpro.nvim",
         lazy = false,
@@ -19,7 +32,10 @@ return require("lazy").setup({
             require("config/nullls")
         end,
     },
-
+    {
+        "github/copilot.vim", config = function()
+        end,
+    },
     { 
         "L3MON4D3/LuaSnip", config = function() 
           require("config/luasnip")

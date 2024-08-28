@@ -23,7 +23,7 @@ cmp.setup({
     mapping = {
         ['<Down>'] =  next,
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<Tab>'] = next,
+--        ['<Tab>'] = next,
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<CR>'] = cmp.mapping.confirm ({
             behavior = cmp.ConfirmBehavior.Insert,

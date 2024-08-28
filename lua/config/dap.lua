@@ -78,7 +78,7 @@ dap.configurations.python = {
       pathMappings = {{
         -- Update this as needed
         localRoot = vim.fn.getcwd();
-        remoteRoot = "/code/";
+        remoteRoot = "/spectra/backend";
       }};
   },
   {
@@ -91,7 +91,7 @@ dap.configurations.python = {
       pathMappings = {{
         -- Update this as needed
         localRoot = vim.fn.getcwd();
-        remoteRoot = "/code/";
+        remoteRoot = "/spectra/backend";
       }};
   }
 }
