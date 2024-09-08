@@ -76,7 +76,7 @@ require('lspconfig')['ruff_lsp'].setup {
     flags = lsp_flags,
     on_attach = on_attach
 }
-require('lspconfig')['tsserver'].setup {
+require('lspconfig')['ts_ls'].setup {
     on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false

@@ -4,7 +4,7 @@ end
 
 return require("lazy").setup({
     defaults = {
-        lazy = true,
+        lazy = false,
     },
     {
         "olimorris/onedarkpro.nvim",
@@ -13,6 +13,16 @@ return require("lazy").setup({
             require("config/onedark")
             vim.cmd([[colorscheme onedark]])
         end,
+    },
+    {
+        "amitds1997/remote-nvim.nvim",
+        version = "*",                       -- Pin to GitHub releases
+        dependencies = {
+            "nvim-lua/plenary.nvim",         -- For standard functions
+            "MunifTanjim/nui.nvim",          -- To build the plugin UI
+            "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+        },
+        config = true,
     },
     {
         "nvimtools/none-ls.nvim",
@@ -34,6 +44,7 @@ return require("lazy").setup({
     },
     {
         "folke/which-key.nvim",
+        dependencies = { "echasnovski/mini.icons" },
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
@@ -132,7 +143,7 @@ return require("lazy").setup({
             require("config/dap")
         end,
     },
-    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap" }, config = get_config("dap-ui") },
+    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }, config = get_config("dap-ui") },
     { "jparise/vim-graphql" },
     { "hoob3rt/lualine.nvim" },
     { "windwp/nvim-ts-autotag",    config = get_config("ts-autotag") },
