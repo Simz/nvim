@@ -6,6 +6,7 @@ return require("lazy").setup({
     defaults = {
         lazy = true,
     },
+    { "github/copilot.vim" },
     {
         "olimorris/onedarkpro.nvim",
         lazy = false,
@@ -25,7 +26,6 @@ return require("lazy").setup({
     },
     { "tpope/vim-sleuth" },
     { "stevearc/dressing.nvim" },
-
     {
         'numToStr/Comment.nvim',
         config = function()
@@ -67,7 +67,6 @@ return require("lazy").setup({
             require("config/luasnip")
         end,
     },
-
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -83,7 +82,6 @@ return require("lazy").setup({
         end,
     },
     { "saadparwaiz1/cmp_luasnip" },
-
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -91,7 +89,6 @@ return require("lazy").setup({
             "nvim-lua/plenary.nvim"
         },
     },
-
     {
         "williamboman/mason.nvim",
         config = function()
@@ -111,7 +108,6 @@ return require("lazy").setup({
             }
         end
     },
-
     {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
@@ -132,7 +128,7 @@ return require("lazy").setup({
             require("config/dap")
         end,
     },
-    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap" }, config = get_config("dap-ui") },
+    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }, config = get_config("dap-ui") },
     { "jparise/vim-graphql" },
     { "hoob3rt/lualine.nvim" },
     { "windwp/nvim-ts-autotag",    config = get_config("ts-autotag") },
@@ -176,9 +172,12 @@ return require("lazy").setup({
             require('vtsls').config({
                 -- customize handlers for commands
                 handlers = {
-                    source_definition = function(err, locations) end,
-                    file_references = function(err, locations) end,
-                    code_action = function(err, actions) end,
+                    source_definition = function(err, locations)
+                    end,
+                    file_references = function(err, locations)
+                    end,
+                    code_action = function(err, actions)
+                    end,
                 },
                 -- automatically trigger renaming of extracted symbol
                 refactor_auto_rename = true,
@@ -191,7 +190,4 @@ return require("lazy").setup({
             require("config/select-ui")
         end
     }
-
-
-
 })
