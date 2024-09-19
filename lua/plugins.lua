@@ -14,6 +14,7 @@ return require("lazy").setup({
             vim.cmd([[colorscheme onedark]])
         end,
     },
+    { "github/copilot.vim" },
     {
         "amitds1997/remote-nvim.nvim",
         version = "*",                       -- Pin to GitHub releases

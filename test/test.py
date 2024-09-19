@@ -1,6 +1,8 @@
 import datetime
 import os
 
+import requests
+
 
 def test(a: str, b: str, c: str):
     a = "test"
@@ -10,6 +12,7 @@ def test(a: str, b: str, c: str):
     a = "test"
     a = "test"
     b = a
+    b = "a"
 
     os.environ("test")
     b = a
