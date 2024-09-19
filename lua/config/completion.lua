@@ -26,7 +26,7 @@ cmp.setup({
     },
     mapping = {
         ['<Down>'] = next,
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        --        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = next,
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<CR>'] = cmp.mapping.confirm({
@@ -46,6 +46,9 @@ cmp.setup({
         { name = 'nvim_lsp_signature_help' },
     },
 })
+
+vim.api.nvim_set_keymap('i', '<C-y>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
+
 --
 --  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 --  cmp.setup.cmdline({ '/', '?' }, {

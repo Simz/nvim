@@ -18,47 +18,46 @@ utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'updatetime', 300)
 utils.opt('o', 'mouse', '')
-utils.opt('o', 'clipboard', 'unnamedplus')
+utils.opt('o', 'clipboard', 'unnamed')
 
 local wk = require("which-key")
-wk.register({
-  ["<leader>"] = {
-    q = { "<cmd>NvimTreeToggle<CR>", "Open file tree" },
-    p = { '<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>', "Fzf all files" },
-    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-    ["1"] = { '<cmd>BufferGoto1<CR>', "Goto tab 1" },
-    ["2"] = { '<cmd>BufferGoto2<CR>', "Goto tab 2" },
-    ["3"] = { '<cmd>BufferGoto3<CR>', "Goto tab 3" },
-    ["4"] = { '<cmd>BufferGoto4<CR>', "Goto tab 4" },
-    ["5"] = { '<cmd>BufferGoto5<CR>', "Goto tab 5" },
-    ["6"] = { '<cmd>BufferGoto6<CR>', "Goto tab 6" },
-    ["7"] = { '<cmd>BufferGoto7<CR>', "Goto tab 7" },
-    ["8"] = { '<cmd>BufferGoto8<CR>', "Goto tab 8" },
-    ["9"] = { '<cmd>BufferGoto9<CR>', "Goto tab 9" },
-    g = {
-      p = { "<cmd>Gitsign preview_hunk<CR>", "GS preview_hunk" },
-      b = { "<cmd>Gitsign blame_line<CR>", "GS blame line" },
-      o = { "<cmd>GitConflictChooseOurs<CR>", "GC choose our" },
-      t = { "<cmd>GitConflictChooseTheirs<CR>", "GC choose theirs" },
-      n = { "<cmd>:GitConflictNextConflict<CR>", "GC next conflict" },
-    },
-    b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint" },
-    v = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Debug value" },
-    d = { "<cmd>lua require'dapui'.toggle()<CR>", "Toggle debuging UI" },
-    l = { "<cmd>DiffviewClose<CR>", "DiffviewClose" },
-    f = { '<cmd>lua vim.lsp.buf.format { async = true }<CR>', "Format buffer" },
-  },
-  ["<C-p>"] = { '<cmd>Telescope find_files<CR>', "" },
-  ["<C-f>"] = { '<cmd>Telescope live_grep<CR>', "" },
-  ["<C-i>"] = { '<cmd>lua vim.lsp.buf.formatting()<CR>', "" },
-  ["gD"] = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "" },
-  ["gd"] = { '<cmd>lua vim.lsp.buf.definition()<CR>', "" },
-  ["K"] = { '<cmd>lua vim.lsp.buf.hover()<CR>', "" },
-  ["<F5>"] = { "<cmd>lua require'dap'.continue()<CR>", "" },
-  ["<F10>"] = { "<cmd>lua require'dap'.step_over()<CR>", "" },
-  ["<F8>"] = { "<cmd>lua require'dap'.step_into()<CR>", "" },
-  ["<F12>"] = { "<cmd>lua require'dap'.step_out()<CR>", "" },
-})
+wk.add(
+  {
+    { "<C-f>",      "<cmd>Telescope live_grep<CR>",                                                   desc = "" },
+    { "<C-i>",      "<cmd>lua vim.lsp.buf.formatting()<CR>",                                          desc = "" },
+    { "<C-p>",      "<cmd>Telescope find_files<CR>",                                                  desc = "" },
+    { "<F10>",      "<cmd>lua require'dap'.step_over()<CR>",                                          desc = "" },
+    { "<F12>",      "<cmd>lua require'dap'.step_out()<CR>",                                           desc = "" },
+    { "<F5>",       "<cmd>lua require'dap'.continue()<CR>",                                           desc = "" },
+    { "<F8>",       "<cmd>lua require'dap'.step_into()<CR>",                                          desc = "" },
+    { "<leader>1",  "<cmd>BufferGoto1<CR>",                                                           desc = "Goto tab 1" },
+    { "<leader>2",  "<cmd>BufferGoto2<CR>",                                                           desc = "Goto tab 2" },
+    { "<leader>3",  "<cmd>BufferGoto3<CR>",                                                           desc = "Goto tab 3" },
+    { "<leader>4",  "<cmd>BufferGoto4<CR>",                                                           desc = "Goto tab 4" },
+    { "<leader>5",  "<cmd>BufferGoto5<CR>",                                                           desc = "Goto tab 5" },
+    { "<leader>6",  "<cmd>BufferGoto6<CR>",                                                           desc = "Goto tab 6" },
+    { "<leader>7",  "<cmd>BufferGoto7<CR>",                                                           desc = "Goto tab 7" },
+    { "<leader>8",  "<cmd>BufferGoto8<CR>",                                                           desc = "Goto tab 8" },
+    { "<leader>9",  "<cmd>BufferGoto9<CR>",                                                           desc = "Goto tab 9" },
+    { "<leader>b",  "<cmd>lua require'dap'.toggle_breakpoint()<CR>",                                  desc = "Toggle breakpoint" },
+    { "<leader>c",  "<cmd>lua vim.lsp.buf.code_action()<CR>",                                         desc = "Code action" },
+    { "<leader>d",  "<cmd>lua require'dapui'.toggle()<CR>",                                           desc = "Toggle debuging UI" },
+    { "<leader>f",  "<cmd>lua vim.lsp.buf.format { async = true }<CR>",                               desc = "Format buffer" },
+    { "<leader>gb", "<cmd>Gitsign blame_line<CR>",                                                    desc = "GS blame line" },
+    { "<leader>gn", "<cmd>:GitConflictNextConflict<CR>",                                              desc = "GC next conflict" },
+    { "<leader>go", "<cmd>GitConflictChooseOurs<CR>",                                                 desc = "GC choose our" },
+    { "<leader>gp", "<cmd>Gitsign preview_hunk<CR>",                                                  desc = "GS preview_hunk" },
+    { "<leader>gt", "<cmd>GitConflictChooseTheirs<CR>",                                               desc = "GC choose theirs" },
+    { "<leader>l",  "<cmd>DiffviewClose<CR>",                                                         desc = "DiffviewClose" },
+    { "<leader>p",  "<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>", desc = "Fzf all files" },
+    { "<leader>q",  "<cmd>NvimTreeToggle<CR>",                                                        desc = "Open file tree" },
+    { "<leader>v",  "<cmd>lua require('dap.ui.widgets').hover()<CR>",                                 desc = "Debug value" },
+    { "K",          "<cmd>lua vim.lsp.buf.hover()<CR>",                                               desc = "" },
+    { "gD",         "<cmd>lua vim.lsp.buf.declaration()<CR>",                                         desc = "" },
+    { "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>",                                          desc = "" },
+  }
+
+)
 
 
 
