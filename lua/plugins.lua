@@ -24,7 +24,9 @@ return require("lazy").setup({
             "MunifTanjim/nui.nvim",          -- To build the plugin UI
             "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
         },
-        config = true,
+        config = function()
+            require("config/remote")
+        end,
     },
     {
         "nvimtools/none-ls.nvim",
