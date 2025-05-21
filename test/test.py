@@ -13,6 +13,7 @@ def test(a: str, b: str, c: str):
     a = "test"
     b = a
     b = "a"
+    b = "a"
 
     os.environ("test")
     b = a

@@ -72,7 +72,7 @@ require('lspconfig')['pyright'].setup {
         },
     },
 }
-require('lspconfig')['ruff_lsp'].setup {
+require('lspconfig')['ruff'].setup {
     flags = lsp_flags,
     on_attach = on_attach
 }

@@ -23,9 +23,9 @@ utils.opt('o', 'clipboard', 'unnamed')
 local wk = require("which-key")
 wk.add(
   {
-    { "<C-f>",      "<cmd>Telescope live_grep<CR>",                                                   desc = "" },
+    { "<C-f>",      "<cmd>FzfLua live_grep<CR>",                                                      desc = "" },
     { "<C-i>",      "<cmd>lua vim.lsp.buf.formatting()<CR>",                                          desc = "" },
-    { "<C-p>",      "<cmd>Telescope find_files<CR>",                                                  desc = "" },
+    { "<C-p>",      "<cmd>FzfLua files<CR>",                                                          desc = "" },
     { "<F10>",      "<cmd>lua require'dap'.step_over()<CR>",                                          desc = "" },
     { "<F12>",      "<cmd>lua require'dap'.step_out()<CR>",                                           desc = "" },
     { "<F5>",       "<cmd>lua require'dap'.continue()<CR>",                                           desc = "" },
@@ -40,7 +40,8 @@ wk.add(
     { "<leader>8",  "<cmd>BufferGoto8<CR>",                                                           desc = "Goto tab 8" },
     { "<leader>9",  "<cmd>BufferGoto9<CR>",                                                           desc = "Goto tab 9" },
     { "<leader>b",  "<cmd>lua require'dap'.toggle_breakpoint()<CR>",                                  desc = "Toggle breakpoint" },
-    { "<leader>c",  "<cmd>lua vim.lsp.buf.code_action()<CR>",                                         desc = "Code action" },
+    { "<leader>c",  "<cmd>FzfLua lsp_code_actions<CR>",                                               desc = "Code action" },
+    --    { "<leader>c",  "<cmd>lua vim.lsp.buf.code_action()<CR>",                                         desc = "Code action" },
     { "<leader>d",  "<cmd>lua require'dapui'.toggle()<CR>",                                           desc = "Toggle debuging UI" },
     { "<leader>f",  "<cmd>lua vim.lsp.buf.format { async = true }<CR>",                               desc = "Format buffer" },
     { "<leader>gb", "<cmd>Gitsign blame_line<CR>",                                                    desc = "GS blame line" },

@@ -18,9 +18,15 @@ null_ls.setup({
     sources = {
         -- yaml
         null_ls.builtins.diagnostics.yamllint,
+        -- php
+        null_ls.builtins.formatting.phpcsfixer,
         -- js
         require("none-ls.code_actions.eslint"),
         require("none-ls.diagnostics.eslint"),
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with({
+            filetypes = {
+                "javascript", "typescript", "css", "scss", "json", "markdown", "graphql", "md", "txt",
+            },
+        }),
     },
 })

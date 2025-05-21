@@ -1,6 +1,5 @@
-function testetst() {
-}
+function testetst() {}
 
 function test() {
-console.log("test")
+  console.log("test");
 }
