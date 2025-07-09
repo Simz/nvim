@@ -47,7 +47,9 @@ cmp.setup({
     },
 })
 
-vim.api.nvim_set_keymap('i', '<C-y>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
+require("copilot.suggestion").toggle_auto_trigger()
+
+-- vim.api.nvim_set_keymap('i', '<C-y>', '<cmd>lua require("copilot.panel").accept()<CR>', { expr = true, silent = true })
 
 --
 --  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

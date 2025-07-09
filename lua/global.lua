@@ -6,6 +6,7 @@ local indent = 4
 
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
+vim.cmd [[ autocmd BufNewFile,BufRead *.typoscript setfiletype typoscript ]]
 
 utils.opt('b', 'expandtab', true)
 utils.opt('b', 'shiftwidth', indent)
