@@ -44,6 +44,9 @@ return require("lazy").setup({
         "zbirenbaum/copilot.lua",
         config = function()
             require("copilot").setup({
+                filetypes = {
+                    ["*"] = true
+                },
                 suggestion = {
                     auto_triiger = true,
                     keymap = {

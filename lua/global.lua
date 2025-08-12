@@ -8,6 +8,28 @@ cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 vim.cmd [[ autocmd BufNewFile,BufRead *.typoscript setfiletype typoscript ]]
 
+
+vim.g.dbs = {
+  {
+    name = 'dev',
+    url = function()
+      local cwd = vim.fn.getcwd()
+      local dir = cwd:match("([^/]+)$")
+      local ip = (io.popen("docker inspect " .. dir .. "-db-1  | jq -r 'first(.[0].NetworkSettings.Networks[].IPAddress)'"):read("*a"))
+          :gsub("%s*$", "")
+
+      print("Found IP for '" .. dir .. "-db-1': " .. ip)
+      if ip ~= "" then
+        --        return "mysql://dev:dev@db:3306/dev"
+        return "mysql://dev:dev@" .. ip .. ":3306/dev"
+      else
+        return "Container not found or no IP assigned"
+      end
+    end
+
+  },
+}
+
 utils.opt('b', 'expandtab', true)
 utils.opt('b', 'shiftwidth', indent)
 utils.opt('b', 'smartindent', true)

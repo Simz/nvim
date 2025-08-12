@@ -5,3 +5,9 @@ if (1 == 1) {
 } else {
     print_r("false");
 }
+
+
+function oneplusone()
+{
+    return 1 + 1;
+}
