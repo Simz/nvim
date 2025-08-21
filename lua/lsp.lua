@@ -85,6 +85,13 @@ require('lspconfig')['ts_ls'].setup {
     flags = lsp_flags,
 }
 require('lspconfig')['intelephense'].setup {
+    settings = {
+        intelephense = {
+            files = {
+                maxSize = 10000000, -- Set your desired max file size in bytes (e.g., 10MB)
+            },
+        },
+    },
     on_attach = on_attach,
     flags = lsp_flags,
 }

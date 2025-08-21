@@ -48,7 +48,7 @@ return require("lazy").setup({
                     ["*"] = true
                 },
                 suggestion = {
-                    auto_triiger = true,
+                    auto_trigger = true,
                     keymap = {
                         accept = "<C-y>",
                     }

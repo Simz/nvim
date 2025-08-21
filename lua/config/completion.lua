@@ -48,7 +48,7 @@ cmp.setup({
     },
 })
 
-require("copilot.suggestion").toggle_auto_trigger()
+-- require("copilot.suggestion").toggle_auto_trigger()
 
 -- vim.api.nvim_set_keymap('i', '<C-y>', '<cmd>lua require("copilot.panel").accept()<CR>', { expr = true, silent = true })
 
