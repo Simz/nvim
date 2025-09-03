@@ -58,7 +58,7 @@ return require("lazy").setup({
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        branch = "canary",
+        branch = "main",
         dependencies = {
             { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
             { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
@@ -302,11 +302,11 @@ return require("lazy").setup({
             --            require("config/diffview")
         end,
     },
-    {
-        "mrcjkb/rustaceanvim",
-        version = '^4', -- Recommended
-        ft = { 'rust' },
-    },
+    --    {
+    --        "mrcjkb/rustaceanvim",
+    --        version = '^4', -- Recommended
+    --        ft = { 'rust' },
+    --    },
     {
         "yioneko/nvim-vtsls",
         config = function()
