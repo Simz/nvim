@@ -1,6 +1,8 @@
-
 return {
+    -- this plugin is for copilot
     "zbirenbaum/copilot.lua",
+
+    -- config copilot
     config = function()
         require("copilot").setup({
             filetypes = {

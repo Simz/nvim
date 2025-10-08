@@ -21,5 +21,3 @@ require("lazy").setup({
 --require('plugins')
 require('lsp')
 require('global')
-
-
