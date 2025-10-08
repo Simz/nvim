@@ -69,12 +69,14 @@ class Animal
 
     public $name;
     public $age;
+    public $color; // fixed the incomplete line
     public $type;
 
-    function __construct($name, $age, $type)
+    function __construct($name, $age, $color, $type) // added color parameter to constructor
     {
         $this->name = $name;
         $this->age = $age;
+        $this->color = $color; // assign color parameter
         $this->type = $type;
     }
 
