@@ -57,7 +57,7 @@ local lsp_flags = {
 --     on_attach = on_attach,
 --     flags = lsp_flags,
 -- }
-require('lspconfig')['pyright'].setup {
+vim.lsp.config('pyright', {
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
@@ -72,20 +72,26 @@ require('lspconfig')['pyright'].setup {
             },
         },
     },
-}
-require('lspconfig')['ruff'].setup {
+})
+vim.lsp.enable('pyright')
+
+vim.lsp.config('ruff', {
     flags = lsp_flags,
     on_attach = on_attach
-}
-require('lspconfig')['ts_ls'].setup {
+})
+vim.lsp.enable('ruff')
+
+vim.lsp.config('ts_ls', {
     on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
 
     flags = lsp_flags,
-}
-require('lspconfig')['intelephense'].setup {
+})
+vim.lsp.enable('ts_ls')
+
+vim.lsp.config('intelephense', {
     settings = {
         intelephense = {
             files = {
@@ -95,32 +101,26 @@ require('lspconfig')['intelephense'].setup {
     },
     on_attach = on_attach,
     flags = lsp_flags,
-}
-require('lspconfig')['rust_analyzer'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-        ["rust-analyzer"] = {}
-    }
-}
+})
+vim.lsp.enable('intelephense')
 
 
-require('lspconfig')['lua_ls'].setup {
+
+vim.lsp.config('lua_ls', {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-require('lspconfig')['html'].setup {
+})
+vim.lsp.enable("lua_ls")
+
+vim.lsp.config('html', {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-require('lspconfig')['graphql'].setup {
+})
+vim.lsp.config('copilot', {
     on_attach = on_attach,
-    flags     = lsp_flags,
-    command   = "graphql-lsp",
-    args      = { "server", "-m", "stream" },
-    filetypes = { "graphql" }
-}
+    flags = lsp_flags,
+})
+vim.lsp.enable('copilot')
 
 --require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
 --require("lspconfig").vtsls.setup({})
