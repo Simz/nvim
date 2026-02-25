@@ -1,8 +1,15 @@
 return {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- or if using mini.icons/mini.nvim
-    -- dependencies = { "echasnovski/mini.icons" },
-    opts = {}
+    opts = {},
+    config = function(_, opts)
+        local fzf = require("fzf-lua")
+
+        -- 1. Initialize the plugin
+        fzf.setup(opts)
+
+        -- 2. Force register with 'silent' to kill the warning
+        -- This is the Lua version of ':FzfLua register_ui_select'
+        fzf.register_ui_select({ silent = true })
+    end,
 }

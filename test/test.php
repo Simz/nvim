@@ -2,7 +2,6 @@
 // This is a test script
 
 // Print "test" to the console
-print_r("test");
 
 // Check if 1 is equal to 1
 if (1 == 1) {
