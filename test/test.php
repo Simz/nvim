@@ -1,4 +1,10 @@
 <?php
+
+//add function to print "test" to the console
+function print_test()
+{
+    print("test");
+}
 // This is a test script
 
 // Print "test" to the console
@@ -65,13 +71,12 @@ function divide($a, $b)
 
 class Animal
 {
-
     public $name;
     public $age;
     public $color; // fixed the incomplete line
     public $type;
 
-    function __construct($name, $age, $color, $type) // added color parameter to constructor
+    public function __construct($name, $age, $color, $type) // added color parameter to constructor
     {
         $this->name = $name;
         $this->age = $age;
@@ -79,7 +84,7 @@ class Animal
         $this->type = $type;
     }
 
-    function speak()
+    public function speak()
     {
         return "My name is " . $this->name . " and I am " . $this->age . " years old. I am a " . $this->type . ".";
     }
