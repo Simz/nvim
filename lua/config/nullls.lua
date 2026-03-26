@@ -69,7 +69,7 @@ null_ls.setup({
         require("none-ls.diagnostics.eslint"),
         null_ls.builtins.formatting.prettier.with({
             filetypes = {
-                "javascript", "typescript", "css", "scss", "json", "markdown", "graphql", "md", "txt",
+                "javascript", "typescript", "css", "scss", "json", "markdown", "graphql", "md", "txt", "yaml"
             },
         }),
     },
