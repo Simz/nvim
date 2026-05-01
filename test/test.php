@@ -5,6 +5,8 @@ function print_test()
 {
     print("test");
 }
+
+
 // This is a test script
 
 // Print "test" to the console

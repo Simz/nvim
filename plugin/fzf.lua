@@ -1,0 +1,6 @@
+vim.pack.add({ 'https://github.com/ibhagwan/fzf-lua' })
+pcall(function()
+    local fzf = require("fzf-lua")
+    fzf.setup({})
+    fzf.register_ui_select({ silent = true })
+end)

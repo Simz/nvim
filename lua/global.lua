@@ -43,7 +43,8 @@ utils.opt('o', 'updatetime', 300)
 utils.opt('o', 'mouse', '')
 utils.opt('o', 'clipboard', 'unnamed')
 
-local wk = require("which-key")
+local ok, wk = pcall(require, "which-key")
+if ok then
 wk.add(
   {
     { "<C-f>",      "<cmd>FzfLua live_grep<CR>",                                                      desc = "" },
@@ -82,6 +83,7 @@ wk.add(
   }
 
 )
+end
 
 
 

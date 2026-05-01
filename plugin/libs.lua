@@ -1,0 +1,7 @@
+vim.pack.add({ 'https://github.com/nvim-lua/plenary.nvim' })
+vim.pack.add({ 'https://github.com/nvim-tree/nvim-web-devicons' })
+vim.pack.add({ 'https://github.com/echasnovski/mini.icons' })
+vim.pack.add({ 'https://github.com/nvim-neotest/nvim-nio' })
+vim.pack.add({ 'https://github.com/rafamadriz/friendly-snippets' })
+vim.pack.add({ 'https://github.com/MunifTanjim/nui.nvim' })
+vim.pack.add({ 'https://github.com/echasnovski/mini.nvim' })

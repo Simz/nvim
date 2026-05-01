@@ -1,0 +1,5 @@
+vim.pack.add({ 'https://github.com/mfussenegger/nvim-dap' })
+vim.pack.add({ 'https://github.com/mfussenegger/nvim-dap-python' })
+vim.pack.add({ 'https://github.com/rcarriga/nvim-dap-ui' })
+pcall(require, "config/dap")
+pcall(require, "config.dap-ui")
