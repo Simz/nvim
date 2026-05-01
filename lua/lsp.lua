@@ -76,6 +76,19 @@ vim.lsp.config('pyright', {
 })
 vim.lsp.enable('pyright')
 
+vim.lsp.config('rust_analyzer', {
+    flags = lsp_flags,
+    on_attach = on_attach
+})
+
+vim.lsp.enable('rust_analyzer')
+
+vim.lsp.config('tailwindcss', {
+    flags = lsp_flags,
+    on_attach = on_attach
+})
+vim.lsp.enable('tailwindcss')
+
 vim.lsp.config('ruff', {
     flags = lsp_flags,
     on_attach = on_attach
