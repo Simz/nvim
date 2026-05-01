@@ -1,5 +1,17 @@
 <?php
 
+//function hello world
+function hello_world(): string
+{
+    print("Hello, World!");
+}
+//hello world function
+function hello_world(): int
+{
+    print("Hello, World!");
+    return 0;
+}
+
 //add function to print "test" to the console
 function print_test()
 {

@@ -5,6 +5,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 vim.diagnostic.config({ virtual_text = true })
 
 -- Use an on_attach function to only map the following keys
@@ -116,11 +117,5 @@ vim.lsp.config('html', {
     on_attach = on_attach,
     flags = lsp_flags,
 })
-vim.lsp.config('copilot', {
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-vim.lsp.enable('copilot')
-
 --require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
 --require("lspconfig").vtsls.setup({})

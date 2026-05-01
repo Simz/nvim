@@ -26,7 +26,10 @@ return {
         -- C-k: Toggle signature help (if signature.enabled = true)
         --
 
-        keymap = { preset = 'enter' },
+        keymap = {
+            preset = 'enter',
+            ['<C-y>'] = { 'hide', 'fallback' },
+        },
 
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

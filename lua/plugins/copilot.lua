@@ -1,16 +1,19 @@
 return {
     -- this plugin is for copilot
     "zbirenbaum/copilot.lua",
+
     dependencies = {
         "copilotlsp-nvim/copilot-lsp",
     },
 
+    -- for all fyletypes
+    filetypes = {
+        "*",
+    },
     -- config copilot
     config = function()
-        vim.lsp.enable("copilot_ls")
         require("copilot").setup({
             filetypes = {
-                ["*"] = true
             },
             nes = {
                 enabled = true,
@@ -21,8 +24,8 @@ return {
                 },
             },
             suggestion = {
+                enabled = true,
                 auto_trigger = true,
-
                 keymap = {
                     accept = "<C-y>",
                 }

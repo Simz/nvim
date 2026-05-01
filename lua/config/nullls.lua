@@ -61,15 +61,16 @@ null_ls.setup({
         -- yaml
         null_ls.builtins.diagnostics.yamllint,
         -- php
-        null_ls.builtins.formatting.phpcsfixer,
+        //null_ls.builtins.formatting.phpcsfixer,
         -- typoscript
         typoscriptlint,
         -- js
         require("none-ls.code_actions.eslint"),
         require("none-ls.diagnostics.eslint"),
         null_ls.builtins.formatting.prettier.with({
+            extra_args = { "--print-width", "1000" },
             filetypes = {
-                "javascript", "typescript", "css", "scss", "json", "markdown", "graphql", "md", "txt", "yaml"
+                "javascript", "typescript", "html", "css", "scss", "json", "markdown", "graphql", "md", "txt", "yaml"
             },
         }),
     },
