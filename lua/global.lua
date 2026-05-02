@@ -48,7 +48,7 @@ if ok then
 wk.add(
   {
     { "<C-f>",      "<cmd>FzfLua live_grep<CR>",                                                      desc = "" },
-    { "<C-i>",      "<cmd>lua vim.lsp.buf.formatting()<CR>",                                          desc = "" },
+    { "<C-i>",      "<cmd>lua vim.lsp.buf.format()<CR>",                                          desc = "" },
     { "<C-p>",      "<cmd>FzfLua files<CR>",                                                          desc = "" },
     { "<F10>",      "<cmd>lua require'dap'.step_over()<CR>",                                          desc = "" },
     { "<F12>",      "<cmd>lua require'dap'.step_out()<CR>",                                           desc = "" },

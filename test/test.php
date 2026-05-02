@@ -6,6 +6,24 @@ function print_test()
     print("test");
 }
 
+function print_teest_r()
+{
+    print_r("test");
+}
+function print_test_r()
+{
+    print_r("test");
+    print_r("test222");
+    print_r("test111");
+}
+function print_test_r2()
+{
+    print_r("test222");
+    print_r("test333");
+}
+
+
+
 
 // This is a test script
 
