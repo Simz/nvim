@@ -1,4 +1,8 @@
 <?php
+function hello()
+{
+    echo "Hello, World!";
+}
 
 function test()
 {
