@@ -1,6 +1,0 @@
---vim.pack.add({ 'https://github.com/folke/sidekick.nvim' })
---pcall(function()
---    require('sidekick').setup({
---        cli = { mux = { backend = "zellij", enabled = false } },
---    })
---end)

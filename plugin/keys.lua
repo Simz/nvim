@@ -1,50 +1,7 @@
-local utils = require('utils')
-vim.g.mapleader = ','
-
-local cmd = vim.cmd
-local indent = 4
-
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
-vim.cmd [[ autocmd BufNewFile,BufRead *.typoscript setfiletype typoscript ]]
-
-
-vim.g.dbs = {
-  {
-    name = 'dev',
-    url = function()
-      local cwd = vim.fn.getcwd()
-      local dir = cwd:match("([^/]+)$")
-      local ip = (io.popen("docker inspect " .. dir .. "-db-1  | jq -r 'first(.[0].NetworkSettings.Networks[].IPAddress)'"):read("*a"))
-          :gsub("%s*$", "")
-
-      print("Found IP for '" .. dir .. "-db-1': " .. ip)
-      if ip ~= "" then
-        --        return "mysql://dev:dev@db:3306/dev"
-        return "mysql://dev:dev@" .. ip .. ":3306/dev"
-      else
-        return "Container not found or no IP assigned"
-      end
-    end
-
-  },
+vim.pack.add {
+  { src = "https://github.com/folke/which-key.nvim" }
 }
-
-utils.opt('b', 'expandtab', true)
-utils.opt('b', 'shiftwidth', indent)
-utils.opt('b', 'smartindent', true)
-utils.opt('b', 'tabstop', indent)
-utils.opt('o', 'scrolloff', 4)
-utils.opt('o', 'splitbelow', true)
-utils.opt('o', 'splitright', true)
-utils.opt('w', 'number', true)
-utils.opt('w', 'relativenumber', true)
-utils.opt('o', 'updatetime', 300)
-utils.opt('o', 'mouse', '')
-utils.opt('o', 'clipboard', 'unnamed')
-
-local ok, wk = pcall(require, "which-key")
-if ok then
+local wk = require("which-key")
 wk.add(
   {
     { "<C-f>",      "<cmd>FzfLua live_grep<CR>",                                                      desc = "" },
@@ -83,17 +40,3 @@ wk.add(
   }
 
 )
-end
-
-
-
-
-
-vim.api.nvim_command [[
-
-  hi cursorline cterm=none term=none
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-  highlight CursorLine guibg=#303000 ctermbg=234
-
-]]
