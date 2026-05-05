@@ -6,6 +6,9 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.expandtab = true
 vim.opt.tabstop = 4      -- A tab counts for 4 spaces
 vim.opt.shiftwidth = 4   -- Size of an indent
@@ -38,4 +41,4 @@ vim.diagnostic.config({
 })
 
 vim.cmd.colorscheme("catppuccin")
-
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})
