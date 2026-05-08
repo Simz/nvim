@@ -5,7 +5,8 @@ local wk = require("which-key")
 wk.add(
     {
         { "<C-f>",      "<cmd>FzfLua live_grep<CR>",                                                      desc = "" },
-        { "<C-i>",      "<cmd>lua vim.lsp.buf.format()<CR>",                                              desc = "" },
+        { "<C-i>",      "<cmd>Format<CR>",                                              desc = "" },
+        -- { "<C-i>",      "<cmd>lua vim.lsp.buf.format()<CR>",                                              desc = "" },
         { "<C-l>",      "<cmd>lua require('lint').try_lint()<CR>",                                        desc = "" },
         { "<C-p>",      "<cmd>FzfLua files<CR>",                                                          desc = "" },
         { "<F10>",      "<cmd>lua require'dap'.step_over()<CR>",                                          desc = "" },
@@ -32,7 +33,7 @@ wk.add(
         { "<leader>gp", "<cmd>Gitsign preview_hunk<CR>",                                                  desc = "GS preview_hunk" },
         { "<leader>gt", "<cmd>GitConflictChooseTheirs<CR>",                                               desc = "GC choose theirs" },
         { "<leader>l",  "<cmd>DiffviewClose<CR>",                                                         desc = "DiffviewClose" },
-        { "<leader>p",  "<cmd>Telescope find_files find_command=rg,--no-ignore-vcs,--hidden,--files<CR>", desc = "Fzf all files" },
+        { "<leader>p",  "<cmd>:lua require('fzf-lua').files({ cmd = 'rg --files --hidden --no-ignore' })<CR>", desc = "Fzf all files" },
         { "<leader>q",  "<cmd>NvimTreeToggle<CR>",                                                        desc = "Open file tree" },
         { "<leader>v",  "<cmd>lua require('dap.ui.widgets').hover()<CR>",                                 desc = "Debug value" },
         { "K",          "<cmd>lua vim.lsp.buf.hover()<CR>",                                               desc = "" },
