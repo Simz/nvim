@@ -1,0 +1,13 @@
+{
+  "test": {
+    "name": "etst",
+    "version": "0.1.0",
+    "description": "A test package for demonstration purposes.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Your Name",
+    "license": "ISC"
+  }
+}

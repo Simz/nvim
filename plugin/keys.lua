@@ -1,6 +1,8 @@
 vim.pack.add {
     { src = "https://github.com/folke/which-key.nvim" }
 }
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})
+
 local wk = require("which-key")
 wk.add(
     {
@@ -32,7 +34,7 @@ wk.add(
         { "<leader>go", "<cmd>GitConflictChooseOurs<CR>",                                                 desc = "GC choose our" },
         { "<leader>gp", "<cmd>Gitsign preview_hunk<CR>",                                                  desc = "GS preview_hunk" },
         { "<leader>gt", "<cmd>GitConflictChooseTheirs<CR>",                                               desc = "GC choose theirs" },
-        { "<leader>l",  "<cmd>DiffviewClose<CR>",                                                         desc = "DiffviewClose" },
+        { "<leader>l",      "<cmd>lua require('lint').try_lint()<CR>",                                        desc = "" },
         { "<leader>p",  "<cmd>:lua require('fzf-lua').files({ cmd = 'rg --files --hidden --no-ignore' })<CR>", desc = "Fzf all files" },
         { "<leader>q",  "<cmd>NvimTreeToggle<CR>",                                                        desc = "Open file tree" },
         { "<leader>v",  "<cmd>lua require('dap.ui.widgets').hover()<CR>",                                 desc = "Debug value" },
