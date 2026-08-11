@@ -1,6 +1,8 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+vim.opt.termsync = false
+vim.o.winborder = "rounded"
 
 vim.opt.termguicolors = true
 vim.opt.number = true
@@ -71,9 +73,9 @@ vim.g.clipboard = {
 
 -- Define your commands here
 local my_commands = {
-  { label = "Cache flush", cmd = "!t3 cache:flush" },
+  { label = "Cache flush", cmd = "!t3 cache:flush", notify = true },
   { label = "tmdt up", cmd = "!tmdt up ." },
-  { label = "Database update schema", cmd = "!t3 database:updateschema" },
+  { label = "Database update schema", cmd = "!t3 database:updateschema", notify = true },
 }
 
 local function run_shell_select()
@@ -87,10 +89,37 @@ local function run_shell_select()
         -- 1. Strip the '!' and any 'split | term' prefix from your table
       -- We want just the raw command: "t3 cache:flush"
       local pure_cmd = choice.cmd:gsub("^!", ""):gsub("split | term ", "")
-      -- 2. Open a split and run the command via interactive zsh in one go
-      -- 'zsh -ic' loads your aliases, 'terminal' provides the TTY
-      vim.cmd(string.format("vs | terminal zsh -ic '%s'", pure_cmd))
-      -- 3. Enter insert mode automatically
+
+      -- 2. Open a floating window
+      local width, height, row, col
+      if choice.notify then
+        -- Small notification-style float, top right
+        width = math.floor(vim.o.columns * 0.3)
+        height = 6
+        row = 1
+        col = vim.o.columns - width - 1
+      else
+        width = math.floor(vim.o.columns * 0.8)
+        height = math.floor(vim.o.lines * 0.8)
+        row = math.floor((vim.o.lines - height) / 2)
+        col = math.floor((vim.o.columns - width) / 2)
+      end
+
+      local buf = vim.api.nvim_create_buf(false, true)
+      vim.api.nvim_open_win(buf, true, {
+        relative = "editor",
+        width = width,
+        height = height,
+        row = row,
+        col = col,
+        style = "minimal",
+        border = "rounded",
+      })
+
+      -- 3. Run the command via interactive zsh in the floating buffer
+      vim.fn.termopen(string.format("zsh -ic '%s'", pure_cmd))
+
+      -- 4. Enter insert mode automatically
       vim.cmd("startinsert")
     else
       print("Selection cancelled")
@@ -100,5 +129,4 @@ end
 
 -- Map <leader>r to the function
 vim.keymap.set('n', '<leader>r', run_shell_select, { desc = 'Run shell command from menu' })
-
 

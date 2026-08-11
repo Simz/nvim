@@ -7,5 +7,5 @@ fzf.setup({
         },
     },
 })
-fzf.setup({'fzf-native'})
 fzf.register_ui_select({ silent = true })
+

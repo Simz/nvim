@@ -5,7 +5,7 @@ vim.pack.add({
 
 -- 2. Configure and initialize agentic.nvim with Gemini
 require("agentic").setup({
-  provider = "gemini-acp", -- Instructs the plugin to use gemini-acp
+  provider = "claude-agent-acp", -- Instructs the plugin to use gemini-acp
   position = "right",      -- "right", "left", or "bottom"
   width = 40,              -- Sidebar width
 })
@@ -13,8 +13,12 @@ require("agentic").setup({
 -- 3. Corrected custom keymaps using the Lua API
 vim.keymap.set("n", "<leader>aa", function()
   require("agentic").toggle()
-end, { desc = "Toggle Gemini AI Chat" })
+end, { desc = "Toggle Claude AI Chat" })
+-- 3. Corrected custom keymaps using the Lua API
+vim.keymap.set("n", "<leader>ar", function()
+  require("agentic").toggle()
+end, { desc = "Resume Claude AI Chat" })
 
 vim.keymap.set("v", "<leader>av", function()
   require("agentic").add_selection()
-end, { desc = "Send selection to Gemini" })
+end, { desc = "Send selection to Claude" })

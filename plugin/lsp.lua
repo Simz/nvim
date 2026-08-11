@@ -14,6 +14,10 @@ local lsp_servers = {
         intelephense = {
             files = {
                 maxSize = 10000000, -- Set your desired max file size in bytes (e.g., 10MB)
+                exclude = {
+                    "**/node_modules/**",
+                    "**/.Build/**"
+                }
             },
         },
     },

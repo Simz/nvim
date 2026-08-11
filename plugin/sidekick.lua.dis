@@ -1,0 +1,24 @@
+vim.pack.add({
+    { src = 'https://github.com/folke/sidekick.nvim' }
+})
+
+-- 2. Configure sidekick.nvim options
+require("sidekick").setup({
+    -- Note: The option is 'sidekick_nes', not 'nes'
+    sidekick_nes = false, 
+    cli = {
+        tools = {
+            antigravity = {
+                cmd = { "agy" },
+            },
+        },
+    },
+})
+
+-- 3. Manually map your keys (since vim.pack doesn't handle a 'keys' table)
+vim.keymap.set("n", "<leader>aa", function()
+    require("sidekick.cli").toggle()
+end, { desc = "Sidekick Toggle CLI" })
+vim.keymap.set("n", "<leader>af", function()
+    require("sidekick.cli").send({ msg = "{file}" })
+end, { desc = "Sidekick Toggle CLI" })
