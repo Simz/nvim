@@ -24,6 +24,10 @@
       "rev": "796121278a414eb0b487d115786c603a764ac82a",
       "src": "https://github.com/saghen/blink.lib"
     },
+    "codediff.nvim": {
+      "rev": "09d9ebef2cc5a5c04db7a349cd6c61bdf84ecc8e",
+      "src": "https://github.com/esmuellert/codediff.nvim"
+    },
     "command_center.nvim": {
       "rev": "84101e8eb1613a72bbdec655b734f891d8a00694",
       "src": "https://github.com/FeiyouG/command_center.nvim"
@@ -155,6 +159,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "procman.nvim": {
+      "rev": "5b1f3c93d6515c7306ea1ca3d2d9b5224c6bee62",
+      "src": "https://github.com/Anderson-Vilela-op/procman.nvim"
     },
     "remote-nvim.nvim": {
       "rev": "9992c2fb8bf4f11aca2c8be8db286b506f92efcb",
