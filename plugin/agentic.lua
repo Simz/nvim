@@ -16,7 +16,7 @@ vim.keymap.set("n", "<leader>aa", function()
 end, { desc = "Toggle Claude AI Chat" })
 -- 3. Corrected custom keymaps using the Lua API
 vim.keymap.set("n", "<leader>ar", function()
-  require("agentic").toggle()
+  require("agentic").restore_session()
 end, { desc = "Resume Claude AI Chat" })
 
 vim.keymap.set("v", "<leader>av", function()

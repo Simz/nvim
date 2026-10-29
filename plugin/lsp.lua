@@ -32,7 +32,10 @@ vim.pack.add({
 }, { confirm = false })
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  -- never auto-enable copilot even if the server gets reinstalled
+  automatic_enable = { exclude = { "copilot" } },
+})
 require("mason-tool-installer").setup({
   ensure_installed = vim.tbl_keys(lsp_servers),
 })
