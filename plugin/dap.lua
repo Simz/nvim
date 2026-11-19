@@ -9,7 +9,7 @@ require("dap-python").setup('~/src/.virtualenvs/debugpy/bin/python')
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
-    args = { "/home/ec2-user/src/vscode-php-debug.git/out/phpDebug.js" },
+    args = { vim.fs.joinpath(vim.env.HOME, "src/vscode-php-debug.git/out/phpDebug.js") },
 }
 
 dap.adapters.codelldb = {
@@ -45,8 +45,17 @@ dap.configurations.php = {
         port = '9003',
         log = true,
         serverSourceRoot = '/var/www/',
-        localSourceRoot = vim.fn['getcwd'](),
-
+        localSourceRoot = function() return vim.fn.getcwd() .. '/' end,
+    },
+    {
+        type = 'php',
+        request = 'launch',
+        name = 'Listen for xdebug (ddev)',
+        port = '9003',
+        log = true,
+        pathMappings = function()
+            return { ['/var/www/html'] = vim.fn.getcwd() }
+        end,
     },
 }
 
